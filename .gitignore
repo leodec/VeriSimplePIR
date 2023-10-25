@@ -1,0 +1,7 @@
+.vscode/
+*.o
+bin/*
+src/bin/*
+*.svg
+*.png
+plots/__pycache__/
