@@ -33,7 +33,8 @@ bin/demo/%$(EXESUFFIX): src/bin/demo/%.o $(EXTLIBDIR)/$(CORELIB)
 $(EXTLIBDIR)/$(CORELIB): $(COREOBJECTS)
 	@echo " -- core:linking $@ from COREOBJECTS"
 	mkdir -p $(EXTLIBDIR)
-	$(CC) $(LIBCMD) -o $@ $(COREOBJECTS) $(TEST_LIB) -ldouble-conversion -lssl -lcrypto
+	# $(CC) $(LIBCMD) -o $@ $(COREOBJECTS) $(TEST_LIB) -ldouble-conversion -lssl -lcrypto
+	$(CC) $(LIBCMD) -o $@ $(COREOBJECTS) $(TEST_LIB) -lssl -lcrypto
 
 ### #this builds the individual objects that make up the library .
 .PRECIOUS: $(COREBINDIR)/%
