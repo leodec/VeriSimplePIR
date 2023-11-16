@@ -9,9 +9,15 @@ This library was tested on Ubuntu 20.04.6 LTS on a machine with an Intel i7 core
 - `clang++` (tested with version 10.0.0-4ubuntu1)
 - OpenSSL (used to run SHA)
 
+To install all requirements on a fresh installation of Ubuntu 20, run the following command:
+    
+    sudo apt install make clang libssl-dev
+
 ### Instructions
 
-The library binary will be placed by default in `./bin/lib`. The directory `~/VeriSimplePIR/bin/lib` should be in your `LD_LIBRARY_PATH` environment variable, or you should manually place the binary in a directory that's in this variable. 
+The library binary will be placed by default in `./bin/lib`. The directory `~/VeriSimplePIR/bin/lib` should be in your `LD_LIBRARY_PATH` environment variable, or you should manually place the binary in a directory that's in this variable. If `VeriSimplePIR` is cloned in your home directory, running this command or adding it to your `.bashrc` and reloading your terminal will add `~/VeriSimplePIR/bin/lib` to your `LD_LIBRARY_PATH` environment variable. 
+
+    export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:~/VeriSimplePIR/bin/lib
 
 Assuming the requirements are present, the library can be built by simply running `make` in the top directory. 
 
