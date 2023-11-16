@@ -1,5 +1,4 @@
 #include "prng.h"
-// #include <cryptoTools/Common/Log.h>
 #include <algorithm>
 #include <cstring>
 

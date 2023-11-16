@@ -6,11 +6,7 @@
 #include "config.h"
 #include "block.h"
 
-#ifdef ENABLE_FULL_GSL
 #include "gsl/span"
-#else
-#include <cryptoTools/gsl/gls-lite.hpp>
-#endif
 
 #define STRINGIZE_DETAIL(x) #x
 #define STRINGIZE(x) STRINGIZE_DETAIL(x)

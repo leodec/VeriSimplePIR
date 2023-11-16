@@ -19,7 +19,7 @@
 #ifndef GSL_ALGORITHM_H
 #define GSL_ALGORITHM_H
 
-#include <cryptoTools/gsl/span>
+#include "span"
 
 #include <algorithm>
 
