@@ -1,5 +1,5 @@
 #pragma once
-#include "cryptoTools/Common/config.h"
+#include "config.h"
 #include <cstdint>
 #include <array>
 #include <iostream>
