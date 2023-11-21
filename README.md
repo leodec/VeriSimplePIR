@@ -17,7 +17,7 @@ To install all requirements on a fresh installation of Ubuntu 20, run the follow
 
 The library binary will be placed by default in `./bin/lib`. The directory `~/VeriSimplePIR/bin/lib` should be in your `LD_LIBRARY_PATH` environment variable, or you should manually place the binary in a directory that's in this variable. If `VeriSimplePIR` is cloned in your home directory, running this command or adding it to your `.bashrc` and reloading your terminal will add `~/VeriSimplePIR/bin/lib` to your `LD_LIBRARY_PATH` environment variable. 
 
-    export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:~/VeriSimplePIR/bin/lib
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/VeriSimplePIR/bin/lib
 
 Assuming the requirements are present, the library can be built by simply running `make` in the top directory. 
 
@@ -38,7 +38,7 @@ There are three compile-time parameters that can be set to alter the performance
 
 - `STAT_SEC_PARAM`: This parameter is defined in `src/lib/pir/mat_packed.h`. This parameter can be changed to adjust the statistical security level of the protocol. Note that all LWE parameters are chosen to satisfy at least `128` bits of computational security. 
 
-- `BASIS`: This parameter is defined in `src/lib/pir/mat_packed.cpp`. This parameter determines the basis of the packed elements of `Z_p` within a machine word. The constraints on `BASIS` is that it cannot be less than `log(p)`, the optimal choice of `BASIS = log(p)`. Note that the parameter generation scripts selects `log(p)` to be an integer. If `BASIS` is greater than `log(p)` for a particular benchmark, set `BASIS` equal to the `log(p)` value, run `make`, then rerun the benchmark. This will only affect the performance of `Answer`, which is the entirety of the server's online computation in `SimplePIR` and `VeriSimplePIR`. 
+- `BASIS`: This parameter is defined in `src/lib/pir/mat_packed.cpp`. This parameter determines the basis of the packed elements of `Z_p` within a machine word. The constraint on `BASIS` is that it cannot be less than `log(p)`, and the optimal choice of `BASIS = log(p)`. Note that the parameter generation scripts selects `log(p)` to be an integer. If `BASIS` is greater than `log(p)` for a particular benchmark, set `BASIS` equal to the `log(p)` value, run `make`, then rerun the benchmark. This will only affect the performance of `Answer`, which is the entirety of the server's online computation in `SimplePIR` and `VeriSimplePIR`. 
 
 ### Computation Benchmarks
 

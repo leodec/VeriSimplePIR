@@ -136,7 +136,8 @@ void benchmark_verisimplepir_online(const VeriSimplePIR& pir, const bool verbose
         pir.Query(A, index);
     }
     end = currentDateTime();
-    std::cout << "Query generation time: " << (end-start)/iters << " ms\n";
+    double query_time = (end-start)/iters;
+    std::cout << "Query generation time: " << query_time << " ms\n";
 
     Matrix ct = std::get<0>(ct_sk);
     Matrix sk = std::get<1>(ct_sk);
@@ -148,14 +149,16 @@ void benchmark_verisimplepir_online(const VeriSimplePIR& pir, const bool verbose
         Matrix ans = pir.Answer(ct, D_packed);
     }
     end = currentDateTime();
-    std::cout << "Answer generation time: " << (end-start)/iters << " ms\n";
+    double answer_time = (end-start)/iters;
+    std::cout << "Answer generation time: " << answer_time << " ms\n";
 
     start = currentDateTime();
     for (uint64_t i = 0; i < iters; i++) {
         pir.FakePreVerify(ct, ans, Z, C);
     }
     end = currentDateTime();
-    std::cout << "Verification time: " << (end-start)/iters << " ms\n";
+    double verify_time = (end-start)/iters;
+    std::cout << "Verification time: " << verify_time << " ms\n";
 
     entry_t res;
     start = currentDateTime();
@@ -163,7 +166,11 @@ void benchmark_verisimplepir_online(const VeriSimplePIR& pir, const bool verbose
         res = pir.Recover(H, ans, sk, index);
     }
     end = currentDateTime();
-    std::cout << "Recovery time: " << (end-start)/iters << " ms\n";
+    double recovery_time = (end-start)/iters;
+    std::cout << "Recovery time: " << recovery_time << " ms\n";
+
+    double total_time = query_time + answer_time + verify_time + recovery_time;
+    std::cout << "Total time: " << total_time << " ms\n";
 }
 
 int main() {
@@ -197,7 +204,7 @@ int main() {
 
     std::cout << "database params: "; pir.dbParams.print();
 
-    benchmark_verisimplepir_offline_server_compute(pir, verbose);
-    benchmark_verisimplepir_offline_client_compute(pir, verbose);
+    // benchmark_verisimplepir_offline_server_compute(pir, verbose);
+    // benchmark_verisimplepir_offline_client_compute(pir, verbose);
     benchmark_verisimplepir_online(pir, verbose);
 }
