@@ -57,8 +57,8 @@ void benchmark_simplepir_online (const uint64_t N, const uint64_t d, const bool 
 
 int main() {
     // const uint64_t N = 1ULL<<30;
-    // const uint64_t N = 1ULL<<33;
-    const uint64_t N = 4*(1ULL<<33);
+    const uint64_t N = 1ULL<<33;
+    // const uint64_t N = 4*(1ULL<<33);
     // const uint64_t N = 8*(1ULL<<33);
     // const uint64_t N = 16*(1ULL<<33);
     // const uint64_t N = 32*(1ULL<<33);

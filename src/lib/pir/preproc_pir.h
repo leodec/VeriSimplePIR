@@ -39,8 +39,8 @@ public:
 
         // q * q' ≥ σ · 2`2 p2√2m ln(2/δ).
 
-        // should just be ell since ell = m
-        Elem kappa = ell * (Elem)std::ceil(std::sqrt((((double) ell) / ((double) m))));
+        // should essentially just be ell since ell = m
+        Elem kappa = (Elem)std::ceil(std::sqrt(m * ell));
         if (kappa % 2 == 0) kappa += 1;
 
         // std::cout << "ell, m, kappa: " << ell << " " << m << " " << kappa << std::endl; 
