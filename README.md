@@ -1,4 +1,4 @@
-# VeriSimplePIR (artifact evaluation branch)
+# VeriSimplePIR
 
 This library was tested on Ubuntu 20.04.6 LTS on a machine with an Intel i7 core and 32 GB of RAM. 
 
